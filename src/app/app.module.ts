@@ -10,12 +10,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './reducers';
 import { MovieEffects } from './effects/movie.effects';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    // CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
