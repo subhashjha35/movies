@@ -1,7 +1,7 @@
 import * as fromMovie from './movie.actions';
 
-describe('loadMovies', () => {
+describe('searchMovies', () => {
   it('should return an action', () => {
-    expect(fromMovie.loadMovies().type).toBe('[Movie] Load Movies');
+    expect(fromMovie.searchMovies().type).toBe('[Movie] Load Movies');
   });
 });

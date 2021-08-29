@@ -3,7 +3,7 @@ interface Rating {
 	Value: string;
 }
 
-export interface Movie {
+export interface MovieDetails {
 	Title: string;
 	Year: string;
 	Rated: string;
