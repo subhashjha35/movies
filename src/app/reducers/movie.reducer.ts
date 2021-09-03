@@ -1,7 +1,7 @@
-import { selectMovie } from './../actions/movie.actions';
 import { SearchResult } from './../model/movie-search';
 import { Action, createReducer, on } from '@ngrx/store';
 import * as movieAction from '../actions/movie.actions';
+import { MovieDetails } from '../model/movie';
 export const movieFeatureKey = 'movie';
 
 export interface MovieState {
@@ -10,7 +10,9 @@ export interface MovieState {
     isLoaded: boolean;
     result: SearchResult[];
   },
-  selectedMovie: string | null;
+  selectedMovie: {
+    [key: string]: MovieDetails
+  } | string | null;
 }
 
 export const initialState: MovieState = {
@@ -35,7 +37,7 @@ const movieReducer = createReducer(
       moviesSearch: {
         isLoading: false,
         isLoaded: true,
-        list: action.searchResult
+        result: action.searchResult
       }
     });
   }),
@@ -47,8 +49,13 @@ const movieReducer = createReducer(
   }),
 
   on(movieAction.selectMovie, (state, action) => {
-    return Object.assign({}, state, { selectedMovie: action.movie });
+    return Object.assign({}, state, { selectedMovie: action.imdbId });
+  }),
+
+  on(movieAction.selectMovieSuccess, (state, action) => {
+    return Object.assign({}, state, { selectedMovie: { [action.movie.imdbID]: action.movie } });
   })
+
 );
 
 export function reducer(state: MovieState | undefined, action: Action) {
