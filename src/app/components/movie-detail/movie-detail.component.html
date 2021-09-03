@@ -1,20 +1,29 @@
 <div
   class="movie-container"
-  fxLayout.gt-sm="row"
-  fxLayout.lt-sm="column"
-  fxLayoutAlign.gt-sm="space-around"
-  fxLayoutGap.lt-sm="10px"
-  fxLayoutGap.gt-xs="10px"
+  gdAreas="h s"
+  gdGap="16px"
+  fxFlexAlign="start"
+  gdAreas.lt-sm="h | s"
+  gdAuto="row"
 >
-  <div class="picture-container card card-primary">
+  <div
+    gdArea="h"
+    class="picture-container card card-primary"
+    fxLayout="row"
+    fxLayoutAlign="center"
+  >
     <mat-card>
       <img [src]="(movie$ | async)?.Poster" alt="" />
-      <h2>{{ (movie$ | async)?.Title }}</h2>
-      <h2>{{ (movie$ | async)?.Year }}</h2>
+      <h2>{{ (movie$ | async)?.Title + ' (' + (movie$ | async)?.Year + ')' }}</h2>
     </mat-card>
   </div>
-  <div class="movie-description">
-    <div class="score-card" fxLayout="row" fxLayoutGap="10px">
+  <div class="movie-description" gdArea="s">
+    <div
+      class="score-card"
+      fxLayout="row"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px"
+    >
       <div class="score-item" *ngIf="(movie$ | async)?.imdbRating">
         <img src="../../../assets/icons/IMDB.svg" alt="" />
         <span class="score">{{ (movie$ | async)?.imdbRating }}</span>
@@ -24,11 +33,53 @@
         <span class="score">{{ (movie$ | async)?.Metascore }}</span>
       </div>
     </div>
-    <h2>Plot</h2>
-    <span>{{ (movie$ | async)?.Plot }}</span>
-    <h2>Cast</h2>
-    <span>{{ (movie$ | async)?.Actors }}</span>
+    <div class="about">
+      <h2>Plot</h2>
+      <span>{{ (movie$ | async)?.Plot }}</span>
+      <hr>
+      <h2>About</h2>
+      <table class="info-table">
+        <tr>
+          <th>Cast</th>
+          <td>{{ (movie$ | async)?.Actors }}</td>
+        </tr>
+        <tr>
+          <th>Writer</th>
+          <td>{{ (movie$ | async)?.Writer }}</td>
+        </tr>
+        <tr>
+          <th>Director</th>
+          <td>{{ (movie$ | async)?.Director }}</td>
+        </tr>
+        <tr>
+          <th>Runtime</th>
+          <td>{{ (movie$ | async)?.Runtime }}</td>
+        </tr>
+        <tr>
+          <th>Production</th>
+          <td>{{ (movie$ | async)?.Production }}</td>
+        </tr>
+        <tr>
+          <th>Language</th>
+          <td>{{ (movie$ | async)?.Language }}</td>
+        </tr>
+        <tr>
+          <th>Released Day</th>
+          <td>{{ (movie$ | async)?.Released }}</td>
+        </tr>
+        <tr>
+          <th>Genre</th>
+          <td>{{ (movie$ | async)?.Genre }}</td>
+        </tr>
+        <tr>
+          <th>Awards Won</th>
+          <td>{{ (movie$ | async)?.Awards }}</td>
+        </tr>
+        <tr>
+          <th>BoxOffice Collection</th>
+          <td>{{ (movie$ | async)?.BoxOffice }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
-
-<pre>{{ movie$ | async | json }}</pre>

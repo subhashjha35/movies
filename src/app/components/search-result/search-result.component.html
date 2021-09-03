@@ -1,11 +1,11 @@
 <div>
   <h3 class="search-message" fxLayoutAlign="center">
-    We found {{ (searchResult$ | async)?.length }} movie(s) for your search
+    We found {{ (searchResult$ | async)?.length || 0 }} movie(s) for your search
   </h3>
-  <div class="search-result"  gdAreas="h h h h"
+  <div class="search-result" gdAreas="h h h h"
     gdGap="16px" gdAreas.lt-lg="h h h" gdAreas.lt-md="h h" gdAreas.lt-sm="h"
     gdRows.lt-md="auto" gdAlignRows="center"
-    gdRows="auto auto auto" *ngIf="(searchResult$| async); else noResult">
+    gdRows="auto auto auto" *ngIf="(searchResult$| async)">
 
     <div *ngFor="let movie of (searchResult$ | async)">
       <a [routerLink]="'/movie/'+movie.imdbID">
@@ -13,5 +13,4 @@
       </a>
     </div>
   </div>
-  <ng-template #noResult>No Result Found</ng-template>
 </div>
