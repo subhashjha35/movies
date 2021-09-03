@@ -1,0 +1,40 @@
+:host {
+  .card-picture {
+    width: 23%;
+    margin-bottom: 2%;
+  }
+  .container {
+    min-height: 100%;
+    width: 100%;
+  }
+  .search-form {
+    width: 90%;
+  }
+  .score-card {
+    img {
+      height: 50px;
+      max-width: 100px;
+    }
+    .score {
+      font-size: 50px;
+      margin-left: 10px;
+    }
+    .score-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .picture-container {
+      mat-card {
+        display: inline-block;
+        text-align: center;
+      }
+    }
+  }
+}

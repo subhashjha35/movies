@@ -1,0 +1,13 @@
+<div fxxLayout="column" fxLayoutAlign="space-around" class="home-wrapper">
+  <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10%">
+    <div>
+      <img src="../../../assets/icons/movie-logo.png" alt="">
+    </div>
+    <form [formGroup]="form" (submit)="searchMovie()" class="search-form">
+      <div fxLayout="row">
+        <input formControlName="movieName" placeholder="Search Movie here" class="search-box">
+        <button mat-stroked-button type="submit" class='search-btn'><mat-icon>search</mat-icon></button>
+      </div>
+    </form>
+  </div>
+</div>

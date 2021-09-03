@@ -1,0 +1,14 @@
+[
+  {
+    "name": "imdb",
+    "url": "IMDB.svg"
+  },
+  {
+    "name": "metacritic",
+    "url": "Metacritic.svg"
+  },
+  {
+    "name": "rotten-tomatoes",
+    "url": "Rotten_Tomatoes.svg"
+  }
+]

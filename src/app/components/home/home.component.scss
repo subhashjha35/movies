@@ -1,0 +1,20 @@
+:host {
+  .home-wrapper {
+    padding: 150px 0px;
+    .search-form {
+      max-width: 600px;
+      min-width: 300px;
+      .search-box {
+        width: 100%;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 12px 0px 0px 12px;
+      }
+      .search-btn {
+        border-left: 0px;
+        border-radius: 0px 12px 12px 0px;
+      }
+    }
+  }
+}

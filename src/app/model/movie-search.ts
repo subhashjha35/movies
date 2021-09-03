@@ -1,4 +1,4 @@
-export interface MovieCompact {
+export interface SearchResult {
   Title: string;
   Year: string;
   imdbID: string;
@@ -6,8 +6,8 @@ export interface MovieCompact {
   Poster: string;
 }
 
-export interface SearchResult {
-  Search: MovieCompact[];
-  totalResults: string;
-  Response: string;
-}
+// export interface SearchResult {
+//   Search: MovieCompact[];
+//   totalResults: string;
+//   Response: string;
+// }

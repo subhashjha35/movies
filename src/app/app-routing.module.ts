@@ -1,18 +1,13 @@
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { HomeComponent } from './components/home/home.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { AppComponent } from './app.component';
-import { MoviesSearchComponent } from './components/movies-search/movies-search.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent,
-    children: [
-      { path: 'movie/:id', component: MovieDetailComponent },
-      { path: 'search/:string', component: MoviesSearchComponent }
-    ]
-  }
+  { path: '', component: HomeComponent },
+  { path: 'movie/:imdbId', component: MovieDetailComponent },
+  { path: 'search/:search_str', component: SearchResultComponent }
 ];
 
 @NgModule({

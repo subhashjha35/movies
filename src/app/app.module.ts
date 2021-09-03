@@ -1,6 +1,14 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +21,11 @@ import { AppState, reducers } from './reducers/index';
 import { MovieEffects } from './effects/movie.effects';
 import { CommonModule } from '@angular/common';
 import { storeLogger } from 'ngrx-store-logger';
-import { MoviesSearchComponent } from './components/movies-search/movies-search.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 export function logger(reducer: ActionReducer<AppState>): any {
   // default, no options
@@ -25,13 +36,22 @@ export function logger(reducer: ActionReducer<AppState>): any {
 export const metaReducers: MetaReducer<AppState>[] = [logger];
 
 @NgModule({
-  declarations: [AppComponent, MoviesSearchComponent, MovieDetailComponent],
+  declarations: [AppComponent, SearchResultComponent, MovieDetailComponent, HeaderComponent, HomeComponent, SearchResultComponent],
   imports: [
-    // CommonModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
     EffectsModule.forRoot([MovieEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
